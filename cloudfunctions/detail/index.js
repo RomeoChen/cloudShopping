@@ -7,7 +7,7 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-    db.collection('product').doc(event._id).get({
+    return await db.collection('product').doc(event.id).get({
         success: function(res) {
             console.log(res.data)
         }
